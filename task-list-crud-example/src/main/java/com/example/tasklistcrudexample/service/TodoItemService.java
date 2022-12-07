@@ -5,7 +5,6 @@ import com.example.tasklistcrudexample.model.TodoItem;
 import com.example.tasklistcrudexample.repository.TodoItemRepository;
 import com.example.tasklistcrudexample.responses.TodoItemPatchRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;

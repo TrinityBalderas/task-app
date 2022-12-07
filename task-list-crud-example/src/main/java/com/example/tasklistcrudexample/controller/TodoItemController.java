@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 //@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("api/tasks")
 public class TodoItemController {
     private TodoItemService todoItemService;
 

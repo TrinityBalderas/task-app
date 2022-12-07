@@ -8,7 +8,6 @@ import com.example.tasklistcrudexample.service.TodoItemService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -61,10 +60,15 @@ public class TodoItemControllerTest {
         assertEquals(HttpStatus.NOT_FOUND, actual.getStatusCode());
     }
     @Test
-    public void deleteTodoItem() {
-        Mockito.when(mockTodoItemService.deleteTodoItem(1L));
+    public void deleteTodoItem_CallsService() {
+        todoItemController.deleteTheItem(1L);
+        verify(mockTodoItemService).deleteTodoItem(1L);
+    }
+    @Test
+    public void delete_TaskCompletedMessage() {
+        TodoItem input = new TodoItem();
         ResponseEntity<TodoItemResponse> actual = todoItemController.deleteTheItem(1L);
-        assertEquals();
-
+        assertEquals(HttpStatus.OK, actual.getStatusCode());
+        assertEquals("Task 1 was deleted.", actual.getBody().message);
     }
 }
